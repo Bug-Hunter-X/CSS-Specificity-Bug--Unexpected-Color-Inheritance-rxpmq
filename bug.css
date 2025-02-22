@@ -1,0 +1,14 @@
+The following CSS code causes unexpected behavior in some browsers due to a lack of specificity:
+
+```css
+div p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+
+The `p` element within a `div` should be blue, but some browsers will incorrectly apply the `color: red` rule due to the way they handle CSS specificity.  This happens because the second rule (`p { color: red; }`) is more specific due to the element selector being closer to the element. This is an uncommon, but subtle bug.
+
