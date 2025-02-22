@@ -1,0 +1,39 @@
+Several solutions exist to fix this CSS specificity issue.  Here are a few:
+
+**Solution 1:  Using more specific selectors:**
+
+```css
+div > p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+The `>` combinator ensures only direct child `p` elements within `div` are affected.
+
+**Solution 2: Increasing Specificity with extra selectors:**
+
+```css
+div p {
+  color: blue !important;
+}
+
+p {
+  color: red;
+}
+```
+Using the `!important` flag is generally discouraged for maintainability issues, but this shows an alternative to demonstrate the specificity issue.
+
+**Solution 3:  Reordering CSS rules:**
+
+```css
+p {
+  color: red;
+}
+div p {
+  color: blue;
+}
+```
+While this works, it's less reliable and harder to manage than more specific selectors.  The browser processes the selectors in the order they appear in the CSS file, this is generally not a recommended solution because it's not reliable and can be difficult to manage. We recommend solution 1 instead.
